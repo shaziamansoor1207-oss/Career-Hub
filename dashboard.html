@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Dashboard | CareerHub</title>
+<meta charset="UTF-8"><link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/base.css"><link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="app-main">
+    <div class="scrim"></div>
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header"><div><h1 style="font-size:1.8rem">Welcome back 👋</h1><p>The full dashboard arrives in Step 4. This page checks that the foundation works.</p></div></div>
+      <div class="card">
+        <h3>Foundation check</h3>
+        <p style="margin:.4rem 0 1rem">Try the toast, the confirm dialog, dark mode (top right) and the mobile menu.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem">
+          <button class="btn btn-primary" id="test-toast">Show toast</button>
+          <button class="btn btn-ghost" id="reset-data">Reset sample data</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script type="module" src="js/pages/dashboard.js"></script>
+</body>
+</html>
