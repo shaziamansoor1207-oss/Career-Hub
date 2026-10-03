@@ -1,5 +1,5 @@
 // LANDING PAGE script: theme, icons and the live readiness preview in the hero.
-import { initStorage } from '../core/storage.js';
+import { initStorage, getReadinessInputs } from '../core/storage.js';
 import { calculateReadiness } from '../core/readiness.js';
 import { applyTheme, initThemeToggles } from '../ui/theme.js';
 import { hydrateIcons } from '../ui/icons.js';
@@ -10,7 +10,7 @@ hydrateIcons();
 initThemeToggles();
 
 // The preview card uses the same scoring code as the real dashboard.
-const { total, parts, message } = calculateReadiness();
+const { total, parts, message } = calculateReadiness(getReadinessInputs());
 const ring = document.getElementById('preview-ring');
 ring.style.setProperty('--p', total);
 ring.dataset.label = total + '%';
