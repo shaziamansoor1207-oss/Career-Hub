@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Skills | CareerHub</title>
+<meta charset="UTF-8"><link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/base.css"><link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="app-main">
+    <div class="scrim"></div>
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1>Skills</h1>
+          <p>Track what you know, update your progress as you learn, and watch your Career Readiness grow.</p>
+        </div>
+        <button class="btn btn-primary" id="add-skill">+ Add Skill</button>
+      </div>
+
+      <section class="card summary-card" aria-labelledby="summary-title">
+        <div class="summary-main">
+          <h2 class="card-title" id="summary-title">Overall Skills Progress</h2>
+          <div class="summary-value" id="summary-value">0%</div>
+          <div class="progress" aria-hidden="true"><span id="summary-bar"></span></div>
+        </div>
+        <div class="summary-stats">
+          <div class="stat"><strong id="stat-total">0</strong><span>Skills</span></div>
+          <div class="stat"><strong id="stat-done">0</strong><span>Completed</span></div>
+          <div class="stat"><strong id="stat-readiness">0%</strong><span>Career Readiness</span></div>
+        </div>
+      </section>
+
+      <section class="skills-grid" id="skills-list" aria-label="Your skills"></section>
+    </main>
+  </div>
+</div>
+<script type="module" src="js/pages/skills.js"></script>
+</body>
+</html>
