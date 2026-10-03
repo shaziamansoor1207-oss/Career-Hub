@@ -1,6 +1,7 @@
 // STORAGE: the ONLY file that touches LocalStorage.
 // Later, replace the inside of these functions with fetch() calls to a backend.
 import { seedData } from './seed.js';
+import { levelForProgress } from './readiness.js';
 
 const PREFIX = 'careerhub:'; // keeps our keys separate from other sites/apps
 
@@ -30,7 +31,7 @@ export function resetAllData() {
   initStorage();
 }
 
-// Helper for list data (skills, projects, jobs). Used from Step 3 onward.
+// Helper for list data (projects, jobs). Used from Step 7 onward.
 export function collection(name) {
   const read = () => storage.get(name, []);
   return {
@@ -38,5 +39,50 @@ export function collection(name) {
     add(item) { const all = read(); const row = { ...item, id: 'id' + Date.now() }; all.push(row); storage.set(name, all); return row; },
     update(id, changes) { storage.set(name, read().map((x) => (x.id === id ? { ...x, ...changes } : x))); },
     remove(id) { storage.set(name, read().filter((x) => x.id !== id)); }
+  };
+}
+
+/* ---------- SKILLS ---------- */
+
+// Makes every skill have the same shape. Also upgrades older saved skills that used "percent".
+function normalizeSkill(skill) {
+  const progress = Number(skill.progress ?? skill.percent ?? 0);
+  return {
+    id: skill.id,
+    name: skill.name,
+    category: skill.category || 'Tools',
+    level: skill.level || levelForProgress(progress),
+    progress
+  };
+}
+
+export function getSkills() { return storage.get('skills', []).map(normalizeSkill); }
+export function saveSkills(skills) { return storage.set('skills', skills); }
+
+export function addSkill(skill) {
+  const skills = getSkills();
+  const row = { ...normalizeSkill(skill), id: 'sk' + Date.now() };
+  skills.push(row);
+  saveSkills(skills);
+  return row;
+}
+
+export function updateSkill(id, updates) {
+  saveSkills(getSkills().map((s) => (s.id === id ? normalizeSkill({ ...s, ...updates }) : s)));
+}
+
+export function deleteSkill(id) {
+  saveSkills(getSkills().filter((s) => s.id !== id));
+}
+
+/* ---------- READINESS INPUTS ---------- */
+
+// Gathers everything readiness.js needs, so pages can do: calculateReadiness(getReadinessInputs())
+export function getReadinessInputs() {
+  return {
+    skills: getSkills(),
+    resume: storage.get('resume', {}),
+    projects: storage.get('projects', []),
+    interview: storage.get('interview', { practiced: [] })
   };
 }
