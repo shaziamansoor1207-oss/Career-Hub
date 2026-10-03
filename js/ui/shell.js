@@ -5,7 +5,7 @@ import { initThemeToggles } from './theme.js';
 
 const PAGES = [
   { id: 'dashboard', label: 'Dashboard', icon: 'home', href: 'dashboard.html', ready: true },
-  { id: 'skills', label: 'Skills', icon: 'bars', href: 'skills.html', ready: false },
+  { id: 'skills', label: 'Skills', icon: 'bars', href: 'skills.html', ready: true },
   { id: 'resume', label: 'Resume', icon: 'file', href: 'resume.html', ready: false },
   { id: 'interview', label: 'Interview', icon: 'chat', href: 'interview.html', ready: false },
   { id: 'jobs', label: 'Jobs', icon: 'briefcase', href: 'jobs.html', ready: false },
