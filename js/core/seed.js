@@ -2,11 +2,12 @@
 export const seedData = {
   profile: { name: 'Shazia Mansoor', title: 'Software Engineering Student', goal: 'Software Engineer' },
   skills: [
-    { id: 's1', name: 'HTML/CSS', category: 'Web Development', percent: 85 },
-    { id: 's2', name: 'JavaScript', category: 'Web Development', percent: 65 },
-    { id: 's3', name: 'SQL', category: 'Database', percent: 55 },
-    { id: 's4', name: 'Git/GitHub', category: 'Tools', percent: 45 },
-    { id: 's5', name: 'Python', category: 'Programming', percent: 60 }
+    { id: 's1', name: 'HTML & CSS', category: 'Web Development', level: 'Intermediate', progress: 70 },
+    { id: 's2', name: 'JavaScript', category: 'Web Development', level: 'Intermediate', progress: 45 },
+    { id: 's3', name: 'Git & GitHub', category: 'Tools', level: 'Beginner', progress: 35 },
+    { id: 's4', name: 'SQL', category: 'Database', level: 'Beginner', progress: 30 },
+    { id: 's5', name: 'Python', category: 'Programming', level: 'Intermediate', progress: 50 },
+    { id: 's6', name: 'Problem Solving', category: 'Soft Skills', level: 'Intermediate', progress: 40 }
   ],
   resume: {
     fullName: 'Shazia Mansoor', title: 'Software Engineering Student', email: 'shazia@example.com',
